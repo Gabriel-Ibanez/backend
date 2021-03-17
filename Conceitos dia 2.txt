@@ -1,0 +1,8 @@
+Node é um software que executa códigos JavaScript no Backendserivor e no frontend/interface, baseado no V8, que é um interpretador de JavaScript da Google. 
+
+O Node funciona com um fluxo como qualquer outra linguagem de backend. É um fluxo de requisição e resposta. Cada vez que o usuário acessa uma rota ou o Frontend no React faz uma chamada para nossa API (Application Programming Interface) (backend), chamamos isso de requisição. E o Node devolve uma resposta. Cada vez que o usuário acessa.
+
+O express é um framework em Node que nos ajuda a lidar com requisições e respostas. Nos ajuda a configurar rotas. Por exemplo, quando o usuário estiver solicitando uma página de contatos, vou responder com uma listagem de contatos.
+
+
+REQ RES

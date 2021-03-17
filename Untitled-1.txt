@@ -1,0 +1,16 @@
+{
+	"latitude": -15.7898748,
+	"longitude": -47.9358662,
+  "endereco": "Cruzeiro Velho Bloco A ",
+  "metragem": 27,
+	"aluguel": 650,
+	"condominio": 90,
+  "iptu": 50,
+  "portaria": false,
+  "elevador": false,
+  "mobiliado": true,
+  "pet": true,
+  "vaga": true,
+  "descricao": "Sobre a kit...",
+  "whatsapp": 5561991
+}

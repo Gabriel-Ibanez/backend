@@ -1,0 +1,103 @@
+desenvolvimento do backend da nossa aplicação, o nosso API Rest utilizando Node.js
+
+1) Para começar, gera o arquivo package.jason 
+yarn init -y
+
+2) acrescentr o pacote expess
+yarn add express
+
+3) para corrigir o aviso queo express precisa que instale o pacote de tipagem separado:
+yarn add @types/express -D
+
+4) Como o Node por padrão não entende typescript(e sim JavaScript) instalar o typescript como dependência de desenvolvimento( -D )
+yarn add typescript -D
+
+5) criar o arquivo tsconfig.jason
+yarn tsc --init
+
+Na liha 7 do arquivo tsconfig.jason, mudar de "target": "e5" para "target": "es2017",  
+es5: ecoma script : entidade por tras das atualizações do javaScript
+
+6) instalar o pacote ts-node-dev para conseguir executar o projeto usando typescript e Node.
+yarn add ts-node-dev -D
+
+7) no arquivo package.jason, acrescentar a linha:
+"scripts": {
+    "dev": "ts-node-dev src/server.ts"
+  },
+
+8) no terminal, para fazer funcionar digite:
+yarn dev
+
+9) Nos "scripst" do arquivo package.jason, acrescentar algumas flags, que são configurações:
+
+para não corrigir os erros do código (que já está sendo vlidade pelo próprio editor):
+--transpile-only 
+
+pra não precisar ler os aquivos do node_module
+--ignore-watch node-modules
+
+10) instalar o Insomnia.rest
+https://insomnia.rest/download/
+
+11) instalar o typeorm e o sqlite3
+yarn add typeorm sqlite3
+
+12) para criar uma migrations que criará tabela de  
+yarn typeorm migration:create -n create_kitnets
+
+13) no arquivo tsconfig.json, aletera e deixar as linha abaixo como apresentadas abaixo:
+    "strictPropertyInitialization": false, 
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true, 
+
+14) pelo insomnia, inserir os dados no banco de dados:
+{
+  "latitude": -15.7898748,
+  "longitude": -47.9358662,
+  "endereco": "Cruzeiro Velho Bloco A ",
+  "metragem": 27,
+  "aluguel": 650,
+  "condominio": 90,
+  "iptu": 50,
+  "portaria": false,
+  "elevador": false,
+  "mobiliado": true,
+  "pet": true,
+  "vaga": true,
+  "descricao": "Sobre a kit...",
+  "whatsapp": 5561991
+}
+
+15) Organizar o código (pastas controllers, databade, models, e arquivos rotas, e server)
+
+16) criar as rotas para listar todos, listar um e criar uma kitnet
+routes.get("/kitnets", KitnetsController.index);
+routes.get("/kitnets/:id", KitnetsController.show);
+routes.post("/kitnets", KitnetsController.create);
+
+17) Implementar uma tabela no banco de dados para armazenar as imagens, não o arquivo (pois não é uma boa prática), e sim o nome do arquivo. O arquivo em si será salvo no disco da aplicação.
+yarn typeorm migration:create -n create_images
+
+18) para executar e criar a nova tabela:
+yarn typeorm migration:run
+
+19) Instalar o pacote multer que é uma biblioteca para lhe dar com upload de imagens, de arquivos em geral dentro do node.
+yarn add multer
+
+e instalar o multer como dependência
+yarn add @types/multer -D
+
+20) na pasta src criar a pasta config e dentro dela o arquivo upload.ts
+
+21) no arquivo de rotas, importar o multer
+
+22) para realizar a tratativa de erros:
+yarn add express-async-errors
+
+23) para validar dados, instalamos o yup
+yarn add yup
+yarn add @types/yup -D
+
+24) Instalar o cors para permitir que nossa aplicação seja acessível de diferentes domínios
+yarn add cors
